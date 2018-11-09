@@ -3,11 +3,12 @@
 # Script for installing tmux on systems where you don't have root access.
 # tmux will be installed in $HOME/local/bin.
 # It's assumed that wget and a C/C++ compiler are installed.
+# gcc, g++, make
 
 # exit on error
 set -e
 
-TMUX_VERSION=2.7
+TMUX_VERSION=2.8
 
 # create our directories
 mkdir -p $HOME/local $HOME/tmux_tmp
