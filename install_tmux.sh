@@ -11,7 +11,11 @@ set -e
 TMUX_VERSION=2.8
 
 # create our directories
-mkdir -p $HOME/local $HOME/tmux_tmp
+if [ ! -d "$HOME/local" ]; then
+    echo "Creating a local directory in $HOME"
+    mkdir -p $HOME/local
+fi
+mkdir -p $HOME/tmux_tmp
 cd $HOME/tmux_tmp
 
 # download source files for tmux, libevent, and ncurses
