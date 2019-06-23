@@ -34,7 +34,7 @@ case $RESPONSE in
 		echo "You need to install the following packages:"
 		echo "ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip."
 		read -p "Do you wish to continue installing neovim without the packages mentioned above? [y/n]" RESPONSE_CONTINUE
-		case $RESPONSE_CONTINUE
+		case $RESPONSE_CONTINUE in
 			"y")
 				build_neovim
 			;;
