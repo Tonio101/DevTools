@@ -29,6 +29,9 @@ case $RESPONSE in
     get_vim_repo
     echo "Good time to grab a cup of coffee :)"
     sleep 5
+    #Need to install ncurses if not there
+    #LDFLAGS=-L$HOME/local/lib ./configure --prefix=$HOME/local --with-features=huge
+    #See install_tmux.sh
     ./configure --prefix=$HOME/local --with-features=huge
     make
     make install
