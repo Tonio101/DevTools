@@ -8,7 +8,7 @@
 # exit on error
 set -e
 
-TMUX_VERSION=2.8
+TMUX_VERSION=3.0a
 
 # create our directories
 if [ ! -d "$HOME/local" ]; then
