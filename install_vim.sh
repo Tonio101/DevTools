@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Recommended to install locally that way it is easier to update in the future.
+
 read -p "Do you have root permissions in this server? [y/n] " RESPONSE
 
 get_vim_repo() {
