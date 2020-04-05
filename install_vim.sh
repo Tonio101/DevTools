@@ -20,8 +20,10 @@ case $RESPONSE in
     echo "Good time to grab a cup of coffee :)"
     sleep 5
     ./configure --with-features=huge
-    make
-    sudo make install
+    make -j $(nproc)
+    sudo make -j $(nproc) install
+    cd ../
+    rm -rf vim/
   ;;
   "n")
     if [ ! -d "$HOME/local" ]; then
@@ -35,8 +37,10 @@ case $RESPONSE in
     #LDFLAGS=-L$HOME/local/lib ./configure --prefix=$HOME/local --with-features=huge
     #See install_tmux.sh
     ./configure --prefix=$HOME/local --with-features=huge
-    make
-    make install
+    make -j $(nproc)
+    make -j $(nproc) install
+    cd ../
+    rm -rf vim/
     echo "Please add the following to your PATH variable:"
     echo "export PATH=$HOME/local/bin:$PATH"
     echo "Don't forget to: source ~/.bashrc"

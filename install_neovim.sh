@@ -17,8 +17,8 @@ build_neovim() {
     mkdir -vp $HOME/local/neovim
   fi
   get_neovim_repo
-  make CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/local/neovim"
-  make install
+  make -j $(nproc) CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/local/neovim"
+  make -j $(nproc) install
   echo "Add the following to your PATH environment variable:"
   echo "export PATH=\$HOME/local/neovim/bin:\$PATH"
   cd ../
@@ -28,6 +28,7 @@ build_neovim() {
 
 case $RESPONSE in
   "y")
+    echo "Installing pre-reqs."
     sudo apt-get install ninja-build gettext libtool libtool-bin \
       autoconf automake cmake g++ pkg-config unzip -y
     build_neovim
