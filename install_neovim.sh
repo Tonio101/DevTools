@@ -17,7 +17,7 @@ build_neovim() {
     mkdir -vp $HOME/local/neovim
   fi
   get_neovim_repo
-  make -j $(nproc) CMAKE_EXTRA_FLAGS="-DCMAKE_INSTALL_PREFIX=$HOME/local/neovim"
+  make -j $(nproc) CMAKE_EXTRA_FLAGS="-DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=$HOME/local/neovim"
   make -j $(nproc) install
   echo "Add the following to your PATH environment variable:"
   echo "export PATH=\$HOME/local/neovim/bin:\$PATH"
