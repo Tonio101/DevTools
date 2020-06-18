@@ -59,4 +59,4 @@ cd ..
 # cleanup
 rm -rf $HOME/tmux_tmp
 
-echo "\$TMUX_BUILD_DIR/bin/tmux is now available. You can optionally add $TMUX_BUILD_DIR/bin to your PATH."
+echo "\$TMUX_BUILD_DIR/bin/tmux is now available. You can optionally add \$TMUX_BUILD_DIR/bin to your PATH."
