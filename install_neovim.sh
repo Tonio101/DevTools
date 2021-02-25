@@ -7,7 +7,7 @@ echo "- CMake version 2.8.12+, with TLS/SSL Support"
 read -p "Do you have root permissions in this server? [y/n] " RESPONSE
 
 get_neovim_repo() {
-  git clone https://github.com/neovim/neovim.git
+  git clone git@github.com:neovim/neovim.git
   cd neovim
 }
 
@@ -26,6 +26,23 @@ build_neovim() {
 
 }
 
+post_install_dependencies()
+{
+  sudo apt update
+  sudo apt install python3-pip
+  python3 -m pip install --user --upgrade pynvim
+
+  sudo apt update 
+  sudo apt install python2
+  curl -kv https://bootstrap.pypa.io/2.7/get-pip.py --output get-pip.py
+  sudo python2 get-pip.py
+  python2 -m pip install --user --upgrade pynvim
+  
+  sudo apt install perl cpanminus libarchive-zip-perl -y
+  # sudo cpanm install Archive::Zip
+  sudo cpanm install Neovim::Ext
+}
+
 case $RESPONSE in
   "y")
     echo "Installing pre-reqs."
@@ -40,6 +57,7 @@ case $RESPONSE in
     case $RESPONSE_CONTINUE in
       "y")
         build_neovim
+	post_install_dependencies
       ;;
       "n")
         exit 0
