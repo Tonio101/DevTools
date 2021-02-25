@@ -8,7 +8,7 @@
 # exit on error
 set -e
 
-TMUX_VERSION=3.0a
+TMUX_VERSION=3.1b
 TMUX_BUILD_DIR=$HOME/local/TMUX
 
 # create our directories
