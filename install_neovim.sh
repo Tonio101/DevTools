@@ -57,7 +57,7 @@ case $RESPONSE in
     case $RESPONSE_CONTINUE in
       "y")
         build_neovim
-	post_install_dependencies
+        post_install_dependencies
       ;;
       "n")
         exit 0
