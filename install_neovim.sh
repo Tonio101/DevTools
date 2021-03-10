@@ -7,7 +7,7 @@ echo "- CMake version 2.8.12+, with TLS/SSL Support"
 read -p "Do you have root permissions in this server? [y/n] " RESPONSE
 
 get_neovim_repo() {
-  git clone git@github.com:neovim/neovim.git
+  git clone https://github.com/neovim/neovim.git
   cd neovim
 }
 
